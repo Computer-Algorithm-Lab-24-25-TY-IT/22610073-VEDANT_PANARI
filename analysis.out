@@ -1,0 +1,43 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00       12     0.00     0.00  std::remove_reference<int&>::type&& std::move<int&>(int&)
+  0.00      0.00     0.00        4     0.00     0.00  std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<int> >, std::is_move_constructible<int>, std::is_move_assignable<int> >::value, void>::type std::swap<int>(int&, int&)
+  0.00      0.00     0.00        1     0.00     0.00  bubbleSort(int*, int)
+  0.00      0.00     0.00        1     0.00     0.00  printArray(int*, int)
+
+			Call graph
+
+
+granularity: each sample hit covers 4 byte(s) no time propagated
+
+index % time    self  children    called     name
+                                   1             main [3]
+[3]      0.0    0.00    0.00       0+1       main [3]
+                0.00    0.00       1/1           bubbleSort(int*, int) [6]
+                0.00    0.00       1/1           printArray(int*, int) [7]
+                                   1             main [3]
+-----------------------------------------------
+                0.00    0.00      12/12          std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<int> >, std::is_move_constructible<int>, std::is_move_assignable<int> >::value, void>::type std::swap<int>(int&, int&) [5]
+[4]      0.0    0.00    0.00      12         std::remove_reference<int&>::type&& std::move<int&>(int&) [4]
+-----------------------------------------------
+                0.00    0.00       4/4           bubbleSort(int*, int) [6]
+[5]      0.0    0.00    0.00       4         std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<int> >, std::is_move_constructible<int>, std::is_move_assignable<int> >::value, void>::type std::swap<int>(int&, int&) [5]
+                0.00    0.00      12/12          std::remove_reference<int&>::type&& std::move<int&>(int&) [4]
+-----------------------------------------------
+                0.00    0.00       1/1           main [3]
+[6]      0.0    0.00    0.00       1         bubbleSort(int*, int) [6]
+                0.00    0.00       4/4           std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<int> >, std::is_move_constructible<int>, std::is_move_assignable<int> >::value, void>::type std::swap<int>(int&, int&) [5]
+-----------------------------------------------
+                0.00    0.00       1/1           main [3]
+[7]      0.0    0.00    0.00       1         printArray(int*, int) [7]
+-----------------------------------------------
+
+Index by function name
+
+   [6] bubbleSort(int*, int)   [4] std::remove_reference<int&>::type&& std::move<int&>(int&)
+   [7] printArray(int*, int)   [5] std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<int> >, std::is_move_constructible<int>, std::is_move_assignable<int> >::value, void>::type std::swap<int>(int&, int&)
